@@ -1,19 +1,35 @@
 import React, { useState } from 'react'
-import { ChevronDown, ChevronRight, CheckCircle, Circle, Menu, X } from 'lucide-react'
+import { 
+  ChevronDown, 
+  ChevronRight, 
+  CheckCircle, 
+  Circle, 
+  Menu, 
+  X,
+  Home,
+  Truck,
+  FileText,
+  Users,
+  Settings,
+  BarChart3,
+  Bell,
+  HelpCircle,
+  Archive
+} from 'lucide-react'
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [expandedMenu, setExpandedMenu] = useState('menu2')
   const [activeSubItem, setActiveSubItem] = useState('sub2')
 
   const menuItems = [
-    { id: 'menu1', label: 'Menu1', hasSubItems: true },
-    { id: 'menu2', label: 'Menu2', hasSubItems: false },
-    { id: 'menu3', label: 'Menu3', hasSubItems: false },
-    { id: 'menu4', label: 'Menu4', hasSubItems: false },
-    { id: 'menu5', label: 'Menu5', hasSubItems: false },
-    { id: 'menu6', label: 'Menu6', hasSubItems: false },
-    { id: 'menu7', label: 'Menu7', hasSubItems: false },
-    { id: 'menu8', label: 'Menu8', hasSubItems: false },
+    { id: 'home', label: 'Home', icon: Home, hasSubItems: false },
+    { id: 'menu2', label: 'Menu2', icon: Truck, hasSubItems: true },
+    { id: 'documents', label: 'Documents', icon: FileText, hasSubItems: false },
+    { id: 'users', label: 'Users', icon: Users, hasSubItems: false },
+    { id: 'settings', label: 'Settings', icon: Settings, hasSubItems: false },
+    { id: 'reports', label: 'Reports', icon: BarChart3, hasSubItems: false },
+    { id: 'notifications', label: 'Notifications', icon: Bell, hasSubItems: false },
+    { id: 'help', label: 'Help', icon: HelpCircle, hasSubItems: false },
   ]
 
   const subItems = [
@@ -55,16 +71,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             {menuItems.map((item) => (
               <div key={item.id}>
                 <div 
-                  className={`flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
+                  className={`flex flex-col items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
                     expandedMenu === item.id ? 'bg-blue-50 text-blue-700' : ''
                   }`}
                   onClick={() => item.hasSubItems && toggleMenu(item.id)}
                 >
-                  <span className="font-medium">{item.label}</span>
+                  <item.icon size={20} className="mb-1" />
+                  <span className="font-medium text-sm">{item.label}</span>
                   {item.hasSubItems && (
                     expandedMenu === item.id ? 
-                      <ChevronDown size={16} /> : 
-                      <ChevronRight size={16} />
+                      <ChevronDown size={14} className="mt-1" /> : 
+                      <ChevronRight size={14} className="mt-1" />
                   )}
                 </div>
                 
