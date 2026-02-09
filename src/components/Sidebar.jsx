@@ -17,6 +17,8 @@ import {
   Archive
 } from 'lucide-react'
 
+const logoImage = '/src/assets/image.png'
+
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [expandedMenu, setExpandedMenu] = useState('menu2')
   const [activeSubItem, setActiveSubItem] = useState('sub2')
@@ -58,7 +60,13 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       }`}>
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-8">
-            <h1 className="text-xl font-bold text-gray-800">Logo</h1>
+            <div className="flex items-center">
+              <img 
+                src={logoImage} 
+                alt="Logo" 
+                className="h-10 w-auto object-contain"
+              />
+            </div>
             <button 
               className="lg:hidden p-2 rounded-md hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
