@@ -50,51 +50,51 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <X size={20} />
             </button>
           </div>
-        
-        <nav className="space-y-1">
-          {menuItems.map((item) => (
-            <div key={item.id}>
-              <div 
-                className={`flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
-                  expandedMenu === item.id ? 'bg-blue-50 text-blue-700' : ''
-                }`}
-                onClick={() => item.hasSubItems && toggleMenu(item.id)}
-              >
-                <span className="font-medium">{item.label}</span>
-                {item.hasSubItems && (
-                  expandedMenu === item.id ? 
-                    <ChevronDown size={16} /> : 
-                    <ChevronRight size={16} />
+          
+          <nav className="space-y-1">
+            {menuItems.map((item) => (
+              <div key={item.id}>
+                <div 
+                  className={`flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
+                    expandedMenu === item.id ? 'bg-blue-50 text-blue-700' : ''
+                  }`}
+                  onClick={() => item.hasSubItems && toggleMenu(item.id)}
+                >
+                  <span className="font-medium">{item.label}</span>
+                  {item.hasSubItems && (
+                    expandedMenu === item.id ? 
+                      <ChevronDown size={16} /> : 
+                      <ChevronRight size={16} />
+                  )}
+                </div>
+                
+                {item.hasSubItems && expandedMenu === item.id && (
+                  <div className="ml-8 mt-2 space-y-1">
+                    {subItems.map((subItem) => (
+                      <div 
+                        key={subItem.id}
+                        className={`flex items-center px-3 py-2 text-sm cursor-pointer rounded-md transition-colors ${
+                          activeSubItem === subItem.id 
+                            ? 'bg-green-50 text-green-700' 
+                            : 'text-gray-600 hover:bg-gray-100'
+                        }`}
+                        onClick={() => setActiveSubItem(subItem.id)}
+                      >
+                        {subItem.completed ? (
+                          <CheckCircle size={16} className="text-green-500 mr-2" />
+                        ) : (
+                          <Circle size={16} className="text-gray-400 mr-2" />
+                        )}
+                        <span>{subItem.label}</span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
-              
-              {item.hasSubItems && expandedMenu === item.id && (
-                <div className="ml-8 mt-2 space-y-1">
-                  {subItems.map((subItem) => (
-                    <div 
-                      key={subItem.id}
-                      className={`flex items-center px-3 py-2 text-sm cursor-pointer rounded-md transition-colors ${
-                        activeSubItem === subItem.id 
-                          ? 'bg-green-50 text-green-700' 
-                          : 'text-gray-600 hover:bg-gray-100'
-                      }`}
-                      onClick={() => setActiveSubItem(subItem.id)}
-                    >
-                      {subItem.completed ? (
-                        <CheckCircle size={16} className="text-green-500 mr-2" />
-                      ) : (
-                        <Circle size={16} className="text-gray-400 mr-2" />
-                      )}
-                      <span>{subItem.label}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+            ))}
+          </nav>
+        </div>
       </div>
-    </div>
     </>
   )
 }
