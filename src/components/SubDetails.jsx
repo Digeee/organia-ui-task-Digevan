@@ -34,8 +34,8 @@ const SubDetails = () => {
         <h2 className="text-white font-semibold text-lg">Sub Details</h2>
       </div>
       
-      <div className="p-6">
-        <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="p-4 sm:p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4 sm:mb-6">
           <FormInput
             label="Name"
             required
@@ -64,7 +64,7 @@ const SubDetails = () => {
           />
         </div>
         
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <FormInput
             label="Quantity"
             required
