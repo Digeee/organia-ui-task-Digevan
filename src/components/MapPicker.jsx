@@ -22,17 +22,17 @@ const MapPicker = ({ onLocationChange }) => {
   return (
     <div className="space-y-3">
       <div 
-        className="h-48 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center cursor-pointer hover:border-blue-400 transition-colors"
+        className="h-40 sm:h-48 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center cursor-pointer hover:border-blue-400 transition-colors"
         onClick={handleMapClick}
       >
-        <div className="text-center">
-          <MapPin size={32} className="text-gray-400 mx-auto mb-2" />
-          <p className="text-gray-500 text-sm">Click to select location on map</p>
-          <p className="text-gray-400 text-xs mt-1">or drag the marker</p>
+        <div className="text-center px-2">
+          <MapPin size={24} className="text-gray-400 mx-auto mb-2 sm:mb-2" />
+          <p className="text-gray-500 text-xs sm:text-sm">Click to select location on map</p>
+          <p className="text-gray-400 text-xs mt-1 hidden sm:block">or drag the marker</p>
         </div>
       </div>
       
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Latitude
@@ -41,7 +41,7 @@ const MapPicker = ({ onLocationChange }) => {
             type="text"
             value={latitude}
             readOnly
-            className="input-field bg-gray-50"
+            className="input-field bg-gray-50 text-sm sm:text-base"
           />
         </div>
         <div>
@@ -52,7 +52,7 @@ const MapPicker = ({ onLocationChange }) => {
             type="text"
             value={longitude}
             readOnly
-            className="input-field bg-gray-50"
+            className="input-field bg-gray-50 text-sm sm:text-base"
           />
         </div>
       </div>
