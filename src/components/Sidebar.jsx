@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { ChevronDown, ChevronRight, CheckCircle, Circle } from 'lucide-react'
+import { ChevronDown, ChevronRight, CheckCircle, Circle, Menu, X } from 'lucide-react'
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const [expandedMenu, setExpandedMenu] = useState('menu1')
   const [activeSubItem, setActiveSubItem] = useState('sub1')
 
@@ -27,9 +27,29 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 overflow-y-auto">
-      <div className="p-6">
-        <h1 className="text-xl font-bold text-gray-800 mb-8">Logo</h1>
+    <>
+      {/* Mobile overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <div className={`w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 overflow-y-auto z-50 transition-transform duration-300 ease-in-out ${
+        isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      }`}>
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-8">
+            <h1 className="text-xl font-bold text-gray-800">Logo</h1>
+            <button 
+              className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              <X size={20} />
+            </button>
+          </div>
         
         <nav className="space-y-1">
           {menuItems.map((item) => (
