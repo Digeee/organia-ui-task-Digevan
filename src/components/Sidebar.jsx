@@ -53,10 +53,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       )}
       
       {/* Sidebar */}
-      <div className={`w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 overflow-y-auto z-50 transition-transform duration-300 ease-in-out ${
+      <div className={`w-64 sm:w-72 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 overflow-y-auto z-50 transition-transform duration-300 ease-in-out ${
         isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-8">
             <h1 className="text-xl font-bold text-gray-800">Logo</h1>
             <button 
@@ -71,17 +71,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             {menuItems.map((item) => (
               <div key={item.id}>
                 <div 
-                  className={`flex flex-col items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
+                  className={`flex items-center px-3 py-3 sm:px-4 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
                     expandedMenu === item.id ? 'bg-blue-50 text-blue-700' : ''
                   }`}
                   onClick={() => item.hasSubItems && toggleMenu(item.id)}
                 >
-                  <item.icon size={20} className="mb-1" />
-                  <span className="font-medium text-sm">{item.label}</span>
+                  <item.icon size={18} className="mr-3 sm:mr-3" />
+                  <span className="font-medium text-sm sm:text-base flex-1">{item.label}</span>
                   {item.hasSubItems && (
                     expandedMenu === item.id ? 
-                      <ChevronDown size={14} className="mt-1" /> : 
-                      <ChevronRight size={14} className="mt-1" />
+                      <ChevronDown size={16} /> : 
+                      <ChevronRight size={16} />
                   )}
                 </div>
                 
