@@ -54,8 +54,8 @@ const DetailPanel = ({ title }) => {
         <h2 className="text-white font-semibold text-lg">{title}</h2>
       </div>
       
-      <div className="p-6">
-        <div className="grid grid-cols-2 gap-6 mb-6">
+      <div className="p-4 sm:p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <FormInput
             label="First Name"
             required
@@ -72,7 +72,7 @@ const DetailPanel = ({ title }) => {
           />
         </div>
         
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <FormInput
             label="Contact Person Name"
             required
@@ -89,11 +89,11 @@ const DetailPanel = ({ title }) => {
           />
         </div>
         
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <MapPicker onLocationChange={handleLocationChange} />
         </div>
         
-        <div className="grid grid-cols-2 gap-6 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
           <FormInput
             label="Province"
             required
@@ -112,7 +112,7 @@ const DetailPanel = ({ title }) => {
           />
         </div>
         
-        <div className="grid grid-cols-2 gap-6 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
           <FormInput
             label="City"
             value={formData.city}
