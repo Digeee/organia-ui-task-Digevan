@@ -11,6 +11,7 @@ const Topbar = ({ setIsSidebarOpen }) => {
         >
           <Menu size={20} />
         </button>
+        <h1 className="text-xl font-bold text-gray-800 mr-6">Main Title</h1>
         <div className="flex items-center text-gray-600 text-sm">
           <span>Main</span>
           <ChevronRight size={16} className="mx-2" />

@@ -65,7 +65,6 @@ const DetailPanel = ({ title }) => {
           />
           <FormInput
             label="Last Name"
-            required
             value={formData.lastName}
             onChange={(e) => handleInputChange('lastName', e.target.value)}
             placeholder="Enter last name"
@@ -75,14 +74,12 @@ const DetailPanel = ({ title }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <FormInput
             label="Contact Person Name"
-            required
             value={formData.contactPerson}
             onChange={(e) => handleInputChange('contactPerson', e.target.value)}
             placeholder="Enter contact person name"
           />
           <FormInput
             label="Contact Number"
-            required
             value={formData.contactNumber}
             onChange={(e) => handleInputChange('contactNumber', e.target.value)}
             placeholder="+94"
@@ -96,19 +93,17 @@ const DetailPanel = ({ title }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
           <FormInput
             label="Province"
-            required
             type="select"
             options={provinces}
             value={formData.province}
             onChange={(e) => handleInputChange('province', e.target.value)}
+            placeholder="Select the province"
           />
           <FormInput
             label="District"
-            required
-            type="select"
-            options={districts}
             value={formData.district}
             onChange={(e) => handleInputChange('district', e.target.value)}
+            placeholder="Enter district"
           />
         </div>
         
@@ -129,8 +124,6 @@ const DetailPanel = ({ title }) => {
         
         <FormInput
           label="Address Note"
-          required
-          type="textarea"
           value={formData.addressNote}
           onChange={(e) => handleInputChange('addressNote', e.target.value)}
           placeholder="Enter address note"

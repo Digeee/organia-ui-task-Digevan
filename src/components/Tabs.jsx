@@ -27,18 +27,16 @@ const Tabs = () => {
             >
               {tab.label}
             </button>
-            {tab.id === 't01' && (
-              <span className="ml-2 px-2 py-1 bg-red-500 text-white text-xs rounded-full whitespace-nowrap">
-                S - 01
-              </span>
-            )}
-            {tab.id === 't02' && (
-              <span className="ml-2 px-2 py-1 bg-red-500 text-white text-xs rounded-full whitespace-nowrap">
-                S - 02
-              </span>
-            )}
           </div>
         ))}
+        <div className="flex items-center space-x-2 ml-4">
+          <span className="px-2 py-1 bg-red-500 text-white text-xs rounded-full">
+            S - 01
+          </span>
+          <span className="px-2 py-1 bg-red-500 text-white text-xs rounded-full">
+            S - 02
+          </span>
+        </div>
       </div>
       
       <div className="mt-2 sm:mt-0">

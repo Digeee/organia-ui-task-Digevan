@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { ChevronDown, ChevronRight, CheckCircle, Circle, Menu, X } from 'lucide-react'
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
-  const [expandedMenu, setExpandedMenu] = useState('menu1')
-  const [activeSubItem, setActiveSubItem] = useState('sub1')
+  const [expandedMenu, setExpandedMenu] = useState('menu2')
+  const [activeSubItem, setActiveSubItem] = useState('sub2')
 
   const menuItems = [
     { id: 'menu1', label: 'Menu1', hasSubItems: true },

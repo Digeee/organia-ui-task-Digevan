@@ -38,7 +38,6 @@ const SubDetails = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4 sm:mb-6">
           <FormInput
             label="Name"
-            required
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
             placeholder="Enter name"
@@ -49,6 +48,7 @@ const SubDetails = () => {
             options={types}
             value={formData.type}
             onChange={(e) => handleInputChange('type', e.target.value)}
+            placeholder="Select type"
           />
           <FormInput
             label="Total Value"
@@ -67,7 +67,6 @@ const SubDetails = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <FormInput
             label="Quantity"
-            required
             value={formData.quantity}
             onChange={(e) => handleInputChange('quantity', e.target.value)}
             placeholder="Enter quantity"
