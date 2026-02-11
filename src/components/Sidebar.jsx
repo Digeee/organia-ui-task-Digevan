@@ -129,7 +129,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   }`}
                   onClick={() => handleMenuItemClick(item.id, item.hasSubItems)}
                 >
-                  <item.icon size={18} className="mr-3 sm:mr-3" />
+                  <item.icon 
+                    size={18} 
+                    className={`mr-3 sm:mr-3 transition-transform duration-200 ${
+                      activeMenuItem === item.id ? 'text-blue-600' : ''
+                    }`} 
+                  />
                   <span className="font-medium text-sm sm:text-base flex-1">{item.label}</span>
                   {item.hasSubItems && (
                     expandedMenu === item.id ? 
