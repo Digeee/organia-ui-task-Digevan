@@ -42,8 +42,44 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { id: 'sub3', label: 'Sub3', completed: false },
   ]
 
-  const toggleMenu = (menuId) => {
-    setExpandedMenu(expandedMenu === menuId ? null : menuId)
+  // Handle main menu item clicks
+  const handleMenuItemClick = (itemId, hasSubItems) => {
+    setClickFeedback(itemId)
+    setActiveMenuItem(itemId)
+    
+    if (hasSubItems) {
+      setExpandedMenu(expandedMenu === itemId ? null : itemId)
+    } else {
+      setExpandedMenu(null)
+    }
+    
+    // Reset click feedback after animation
+    setTimeout(() => setClickFeedback(null), 300)
+    
+    // Close mobile sidebar after selection
+    if (window.innerWidth < 1024) {
+      setIsOpen(false)
+    }
+  }
+
+  // Handle sub-item clicks
+  const handleSubItemClick = (subItemId) => {
+    setClickFeedback(`sub-${subItemId}`)
+    setActiveSubItem(subItemId)
+    
+    // Reset click feedback after animation
+    setTimeout(() => setClickFeedback(null), 300)
+    
+    // Close mobile sidebar after selection
+    if (window.innerWidth < 1024) {
+      setIsOpen(false)
+    }
+  }
+
+  // Handle logo click
+  const handleLogoClick = () => {
+    setClickFeedback('logo')
+    setTimeout(() => setClickFeedback(null), 300)
   }
 
   return (
