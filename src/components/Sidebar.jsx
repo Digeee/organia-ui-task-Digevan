@@ -148,12 +148,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                     {subItems.map((subItem) => (
                       <div 
                         key={subItem.id}
-                        className={`flex items-center px-3 py-2 text-sm cursor-pointer rounded-md transition-colors ${
+                        className={`flex items-center px-3 py-2 text-sm cursor-pointer rounded-md transition-all duration-200 transform ${
                           activeSubItem === subItem.id 
-                            ? 'bg-green-50 text-green-700' 
-                            : 'text-gray-600 hover:bg-gray-100'
+                            ? 'bg-green-50 text-green-700 shadow-sm' 
+                            : 'text-gray-600 hover:bg-gray-100 hover:translate-x-1'
+                        } ${
+                          clickFeedback === `sub-${subItem.id}` ? 'scale-95 bg-gray-100' : ''
                         }`}
-                        onClick={() => setActiveSubItem(subItem.id)}
+                        onClick={() => handleSubItemClick(subItem.id)}
                       >
                         {subItem.completed ? (
                           <CheckCircle size={16} className="text-green-500 mr-2" />
