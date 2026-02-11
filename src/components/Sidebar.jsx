@@ -21,7 +21,9 @@ const logoImage = '/src/assets/image.png'
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [expandedMenu, setExpandedMenu] = useState('menu2')
+  const [activeMenuItem, setActiveMenuItem] = useState('menu2')
   const [activeSubItem, setActiveSubItem] = useState('sub2')
+  const [clickFeedback, setClickFeedback] = useState(null)
 
   const menuItems = [
     { id: 'home', label: 'Home', icon: Home, hasSubItems: false },
