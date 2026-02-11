@@ -144,7 +144,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 </div>
                 
                 {item.hasSubItems && expandedMenu === item.id && (
-                  <div className="ml-8 mt-2 space-y-1">
+                  <div className="ml-8 mt-2 space-y-1 animate-fadeIn">
                     {subItems.map((subItem) => (
                       <div 
                         key={subItem.id}
