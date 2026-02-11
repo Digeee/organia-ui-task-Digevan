@@ -98,11 +98,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       }`}>
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center">
+            <div 
+              className="flex items-center cursor-pointer transform transition-transform duration-200 hover:scale-105"
+              onClick={handleLogoClick}
+            >
               <img 
                 src={logoImage} 
                 alt="Logo" 
-                className="h-10 w-auto object-contain"
+                className={`h-10 w-auto object-contain ${clickFeedback === 'logo' ? 'animate-pulse' : ''}`}
               />
             </div>
             <button 
@@ -117,10 +120,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             {menuItems.map((item) => (
               <div key={item.id}>
                 <div 
-                  className={`flex items-center px-3 py-3 sm:px-4 text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors rounded-lg ${
-                    expandedMenu === item.id ? 'bg-blue-50 text-blue-700' : ''
+                  className={`flex items-center px-3 py-3 sm:px-4 text-gray-700 hover:bg-gray-100 cursor-pointer transition-all duration-200 rounded-lg transform ${
+                    activeMenuItem === item.id 
+                      ? 'bg-blue-50 text-blue-700 shadow-sm' 
+                      : 'hover:translate-x-1'
+                  } ${
+                    clickFeedback === item.id ? 'scale-95 bg-gray-100' : ''
                   }`}
-                  onClick={() => item.hasSubItems && toggleMenu(item.id)}
+                  onClick={() => handleMenuItemClick(item.id, item.hasSubItems)}
                 >
                   <item.icon size={18} className="mr-3 sm:mr-3" />
                   <span className="font-medium text-sm sm:text-base flex-1">{item.label}</span>
