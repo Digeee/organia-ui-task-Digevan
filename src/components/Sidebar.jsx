@@ -17,7 +17,7 @@ import {
   Archive
 } from 'lucide-react'
 
-const logoImage = '/src/assets/image.png'
+const logoImage = '/assets/logo.png'
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [expandedMenu, setExpandedMenu] = useState('menu2')
